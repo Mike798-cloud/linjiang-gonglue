@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="《未认领》玩家视角完整攻略。按当前 Mike798-cloud/found 主线整理，包含邮件之后的完整结局流程。">
+<title>《未认领》完整攻略｜玩家视角</title>
+<style>
+:root{
+  --bg:#dedbd3;
+  --paper:#fffdf7;
+  --paper2:#f2eee4;
+  --ink:#222;
+  --muted:#69655e;
+  --blue:#244b66;
+  --blue2:#17354a;
+  --line:#c9c0b2;
+  --red:#8b3e32;
+  --green:#426041;
+  --yellow:#fff4c9;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:var(--bg);
+  font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;
+  line-height:1.75;
+}
+a{color:#175c8b}
+.wrap{
+  width:min(1000px,calc(100% - 28px));
+  margin:24px auto 48px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  box-shadow:0 3px 18px rgba(0,0,0,.08);
+}
+header{
+  padding:30px 34px 23px;
+  border-bottom:4px solid var(--blue);
+  background:
+    linear-gradient(rgba(255,255,255,.91),rgba(255,255,255,.91)),
+    repeating-linear-gradient(0deg,transparent 0 27px,rgba(0,0,0,.035) 28px);
+}
+.kicker{font-size:12px;letter-spacing:.18em;color:var(--muted)}
+h1{margin:5px 0 7px;font-size:34px;line-height:1.25;color:var(--blue2)}
+.subtitle{font-size:14px;color:var(--muted)}
+main{padding:27px 34px 42px}
+.hero-warning,.mail-rescue,.note,.route{
+  margin:0 0 21px;
+  padding:14px 16px;
+  border-left:5px solid var(--red);
+  background:#faf0eb;
+}
+.mail-rescue{
+  border-left-color:#b26b22;
+  background:var(--yellow);
+}
+.note{
+  border-left-color:var(--green);
+  background:#eff5ed;
+}
+.route{
+  border:1px solid #b7c5ce;
+  border-left:5px solid var(--blue);
+  background:#f1f6f9;
+}
+.route b,.mail-rescue b{color:var(--blue2)}
+h2{
+  margin:34px 0 14px;
+  padding-bottom:7px;
+  font-size:22px;
+  color:var(--blue2);
+  border-bottom:1px solid var(--line);
+}
+h3{font-size:17px;margin:18px 0 7px;color:#35312b}
+.step{
+  margin:16px 0 25px;
+  padding:1px 0 1px 17px;
+  border-left:3px solid #879eac;
+}
+.n{
+  display:inline-block;
+  min-width:28px;
+  margin-right:7px;
+  padding:1px 7px;
+  color:#fff;
+  background:var(--blue);
+  text-align:center;
+  font-size:13px;
+}
+.answer{
+  display:inline-block;
+  padding:1px 7px;
+  border:1px solid #d3cab9;
+  background:#eee9dd;
+  font-family:Consolas,"Courier New",monospace;
+  border-radius:2px;
+}
+.next{
+  margin-top:10px;
+  color:var(--green);
+  font-weight:700;
+}
+.small{font-size:13px;color:var(--muted)}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:13px 0 20px;
+  font-size:14px;
+}
+th,td{
+  padding:9px 10px;
+  text-align:left;
+  vertical-align:top;
+  border:1px solid var(--line);
+}
+th{background:#e9edf0;color:#263b4a}
+.flow{
+  padding:13px 16px;
+  border:1px dashed #a8a092;
+  background:#faf8f1;
+  font-family:Consolas,"Microsoft YaHei",monospace;
+}
+details{
+  margin:11px 0;
+  border:1px solid var(--line);
+  background:#fffef9;
+}
+summary{
+  cursor:pointer;
+  padding:10px 13px;
+  font-weight:700;
+  color:var(--blue2);
+}
+details>div{padding:0 14px 13px}
+.direct{
+  padding:10px 13px;
+  border:1px dashed #b7ad9d;
+  background:#f8f4e9;
+  font-size:13px;
+}
+footer{
+  padding:16px 34px 21px;
+  border-top:1px solid var(--line);
+  background:var(--paper2);
+  color:var(--muted);
+  font-size:12px;
+}
+@media(max-width:640px){
+  .wrap{width:100%;margin:0;border-left:0;border-right:0}
+  header,main,footer{padding-left:18px;padding-right:18px}
+  h1{font-size:27px}
+  h2{font-size:20px}
+  table{font-size:12px}
+  th,td{padding:7px 6px}
+}
+@media print{
+  body{background:#fff}
+  .wrap{width:100%;margin:0;border:0;box-shadow:none}
+  details>div{display:block!important}
+}
+</style>
+</head>
+<body>
+<article class="wrap">
+<header>
+  <div class="kicker">PLAYER WALKTHROUGH / CURRENT ROUTE</div>
+  <h1>《未认领》玩家视角完整攻略</h1>
+  <div class="subtitle">按当前游戏主线重新核对｜包含留言板节点｜补全“看完邮件以后”的全部操作｜2026-09-11</div>
+</header>
+
+<main>
+  <div class="hero-warning">
+    <b>完全剧透提醒：</b>下面会直接给出编号、日期、搜索词和结局。轻度卡关时只看所在阶段的“下一步”即可。
+  </div>
+
+  <div class="mail-rescue">
+    <b>如果你就是卡在“看完邮件”这里：</b><br>
+    打开 <span class="answer">EML-0504</span> 后，不需要联系周远，也不是已经结局。看邮件最下方的
+    <b>Archive ref</b>，记下 <span class="answer">SUP-20190506</span> →
+    点邮件页顶部 <b>“返回LJ-Lost II”</b> →
+    在“迁移批次与交叉索引查询”的编号框输入 <span class="answer">SUP-20190506</span> →
+    点“查询” → 打开“卷宗补充登记” → 点右下角/页面末尾 <b>“查看卷宗封面”</b>。
+    看到 <b>“未认领”被划掉并变成“已保留”</b>，就是正式结局。
+  </div>
+
+  <div class="note">
+    <b>玩家身份：</b>你不是第三方调查者。开场扫描件底部的电脑路径写着
+    <span class="answer">D:\周远\母亲遗物\周宁寻人资料\...</span>，
+    因此玩家就是<strong>周远</strong>。后期看到“周远”时不需要寻找联系方式。
+  </div>
+
+  <div class="route">
+    <b>当前版主线总览：</b><br>
+    开场扫描背面 → 042 → K124 / 2008-07-16 → 0716-N → 0717-M →
+    旅客留言板（2008-07-17 / NING）→ 石榴巷17号 → TERM-03 →
+    REC-0717-03 → browser_recovery.txt → 临江晚报缓存 →
+    旧失物月报 → LJ10-0716-B → CLM-20100318 →
+    QRY-20130906 → CUSTOMER_MAIL_EXPORT → EML-0504 →
+    SUP-20190506 → 卷宗封面 → 已保留。
+  </div>
+
+  <h2>一、开场：从母亲留下的扫描件开始</h2>
+  <div class="step">
+    <h3><span class="n">1</span>把图片翻到第 2 张</h3>
+    <p>开场是旧式图片查看器。点击右箭头，把计数从 <b>1 / 2</b> 切到 <b>2 / 2</b>。</p>
+    <p>背面重点只有两个：</p>
+    <ul>
+      <li>手写的失物招领网址；</li>
+      <li>编号 <span class="answer">042</span>。</li>
+    </ul>
+    <p class="next">下一步：进入“失物招领”，查 042。</p>
+  </div>
+
+  <h2>二、042：蓝色帆布书包</h2>
+  <div class="step">
+    <h3><span class="n">2</span>查询失物登记 042</h3>
+    <p>在失物编号查询框输入：</p>
+    <p><span class="answer">042</span></p>
+    <p>也可输入完整编号 <span class="answer">2008-0716-042</span>。</p>
+    <p>打开详情后记住：</p>
+    <ul>
+      <li>登记日期：<b>2008-07-16</b></li>
+      <li>拾获地点：<b>K124 次 / 7号车厢</b></li>
+      <li>拾获时间：<b>19:42</b></li>
+      <li>物品：<b>蓝色帆布书包</b></li>
+      <li>内有：旧衣物、<b>红色瓢虫发夹</b>、家庭照片等</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>打开附件 042-PH-01</h3>
+    <p>点“相纸背面扫描”。背面文字：</p>
+    <p><span class="answer">阿远 7岁　小宁 5岁　99.5.2</span></p>
+    <p>这里已经把“042”与阿远、小宁这对兄妹连起来。</p>
+    <p class="next">下一步：用 042 的车次和日期去查 K124。</p>
+  </div>
+
+  <h2>三、K124：确认 2008 年 7 月 16 日当晚发生了什么</h2>
+  <div class="step">
+    <h3><span class="n">4</span>进入“列车时刻”</h3>
+    <table>
+      <tr><th>字段</th><th>输入</th></tr>
+      <tr><td>车次</td><td><span class="answer">K124</span></td></tr>
+      <tr><td>日期</td><td><span class="answer">2008-07-16</span></td></tr>
+    </table>
+    <p>历史记录显示：计划 18:44 到达，当天实际 <b>19:31</b> 到达，19:55 开车，晚点 <b>47分钟</b>。</p>
+    <p>页面末尾会告诉你：晚点期间的问询、失物、临时协助不在调度记录里，而在一候车室的<strong>《旅客服务值班登记》</strong>。</p>
+    <p class="next">下一步：旅客服务 → 历史资料查阅。</p>
+  </div>
+
+  <h2>四、值班登记：0716-N → 0717-M</h2>
+  <div class="step">
+    <h3><span class="n">5</span>查询 2008-07-16</h3>
+    <p>进入“旅客服务” → “旅客服务登记查阅”，日期输入：</p>
+    <p><span class="answer">2008-07-16</span></p>
+    <p>打开 <span class="answer">0716-N</span>，读完后点页面下方：</p>
+    <p><b>下一页：0717-M</b></p>
+    <p>0717-M 是昨夜未成年旅客交接的次日早班登记，是这一阶段真正的重要页面。</p>
+  </div>
+
+  <h2>五、当前版补充节点：旅客留言板</h2>
+  <div class="step">
+    <h3><span class="n">6</span>查看 2008-07-17 / NING 的留言</h3>
+    <p>当前版本里“旅客留言板”也是调查链的一部分。进入留言板后，可用以下任一方式筛选：</p>
+    <table>
+      <tr><th>查询方式</th><th>输入</th></tr>
+      <tr><td>日期</td><td><span class="answer">2008-07-17</span></td></tr>
+      <tr><td>留言人</td><td><span class="answer">NING</span></td></tr>
+    </table>
+    <p>把相关留言看完即可。这个节点用于补齐当晚/次日的行动痕迹；旧版攻略漏掉了这一段。</p>
+    <p class="next">下一步：根据已经得到的旧住址，去“站前交通”查石榴巷。</p>
+  </div>
+
+  <h2>六、旧地址：石榴巷 17 号</h2>
+  <div class="step">
+    <h3><span class="n">7</span>站前交通 → 旧门牌对照</h3>
+    <p>输入：</p>
+    <p><span class="answer">石榴巷17号</span></p>
+    <p>会查到：</p>
+    <p><b>石榴巷旧17号 → 临江路北段63号</b></p>
+    <p>最重要的是页面末尾：旧门牌与公交底图从 2008 年起同步到<strong>一候车室公共查询区</strong>，查询终端故障另记在<strong>信息组设备台账</strong>。</p>
+
+    <div class="note">
+      这里附近当前版本可能自动弹出“支持《未认领》”的 1 元自愿打赏窗口。
+      <b>它不是门槛，也不影响通关。</b>不想打赏时直接点“×”或“下次一定”继续即可。
+    </div>
+
+    <p class="next">下一步：打开“信息组设备台账”。</p>
+  </div>
+
+  <h2>七、TERM-03：公共查询区 3 号机</h2>
+  <div class="step">
+    <h3><span class="n">8</span>查 TERM-03</h3>
+    <p>设备台账中重点查看：</p>
+    <p><span class="answer">TERM-03</span></p>
+    <p>它对应“一候车室公共查询区 3号机”。2008-07-17 的维修记录中有附件：</p>
+    <p><span class="answer">REC-0717-03</span></p>
+    <p>点击该附件进入恢复目录。</p>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">9</span>REC-0717-03 → browser_recovery.txt</h3>
+    <p>恢复目录里先打开：</p>
+    <p><span class="answer">browser_recovery.txt</span></p>
+    <p>看完浏览记录后，点页面底部缓存文档：</p>
+    <p><span class="answer">ljwb_20080602.htm</span></p>
+    <p>旧新闻《临江五岁女童失踪九年仍无消息》确认：</p>
+    <ul>
+      <li>失踪女童：<b>周宁</b></li>
+      <li>1999年失踪时：<b>5岁</b></li>
+      <li>哥哥：<b>周远</b>，当年 <b>7岁</b></li>
+      <li>旧住址：<b>站前片区石榴巷</b></li>
+    </ul>
+    <p>至此，042 书包、照片背面、年龄、旧住址和查询终端记录已经互相印证。</p>
+  </div>
+
+  <h2>八、不要停在旧新闻：继续追 042 后来的档案</h2>
+  <div class="step">
+    <h3><span class="n">10</span>旧失物系统 → 月度统计</h3>
+    <p>回到“失物招领”，依次进入：</p>
+    <div class="flow">月度统计 → 2010年3月月报附页 → 旧登记移交批次表</div>
+    <p>042 落在流水范围 <b>042—047</b>，对应新系统迁移批次：</p>
+    <p><span class="answer">LJ10-0716-B</span></p>
+    <p class="next">下一步：进入 LJ-Lost II。</p>
+  </div>
+
+  <h2>九、LJ-Lost II：迁移后的 042 卷宗</h2>
+  <div class="step">
+    <h3><span class="n">11</span>查询迁移批次</h3>
+    <p>在“迁移批次与交叉索引查询”输入：</p>
+    <p><span class="answer">LJ10-0716-B</span></p>
+    <p>结果中找到：</p>
+    <p><b>042　蓝色帆布书包　→ 打开卷内记录</b></p>
+    <p>进入后打开附件：</p>
+    <p><span class="answer">CLM-20100318</span></p>
+  </div>
+
+  <h2>十、CLM-20100318：2010 年有人回来认领照片</h2>
+  <div class="step">
+    <h3><span class="n">12</span>阅读认领申请</h3>
+    <p>申请人能准确说出：</p>
+    <ul>
+      <li>红色瓢虫发夹；</li>
+      <li>照片背面的“阿远7岁 / 小宁5岁”；</li>
+      <li>照片里的男孩叫“周远”。</li>
+    </ul>
+    <p>但身份未能与旧失踪资料直接对应，她只想拿照片，并且不同意车站代为联系原登记家属。</p>
+    <p>页面末尾给出：</p>
+    <p><b>交叉索引：</b> <span class="answer">QRY-20130906</span></p>
+    <p class="next">下一步：不是点编号。点页面上方“旧登记查询”，手动输入 QRY-20130906。</p>
+  </div>
+
+  <h2>十一、QRY-20130906：母亲后来也查到了这份卷宗</h2>
+  <div class="step">
+    <h3><span class="n">13</span>输入 QRY-20130906</h3>
+    <p>返回 LJ-Lost II 的“旧登记查询”，输入：</p>
+    <p><span class="answer">QRY-20130906</span></p>
+    <p>这里会看到许静兰在 2013 年来核对 042，并知道 2010 年曾有一名女性申请认领照片。</p>
+    <p>页面下方会出现真正的下一站：</p>
+    <p><b>CUSTOMER_MAIL_EXPORT（独立客服邮箱归档）</b></p>
+    <p>直接点击进入。</p>
+  </div>
+
+  <h2>十二、客服邮件：找到 EML-0504</h2>
+  <div class="step">
+    <h3><span class="n">14</span>搜索“陈师傅”</h3>
+    <p>在邮件关键词搜索框输入：</p>
+    <p><span class="answer">陈师傅</span></p>
+    <p>也可输入完整主题：</p>
+    <p><span class="answer">给陈师傅的一封信</span></p>
+    <p>打开搜索结果中的 2019 年邮件 <span class="answer">EML-0504</span>。</p>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">15</span>邮件看完以后，千万不要停</h3>
+    <p>这正是旧攻略最容易让玩家卡住的位置。</p>
+    <p>在邮件正文下面能看到：</p>
+    <div class="flow">Archive ref: SUP-20190506 / legacy record 2008-0716-042</div>
+    <p>真正需要带走的下一条“密码/索引”是：</p>
+    <p><span class="answer">SUP-20190506</span></p>
+    <p><b>具体点击顺序：</b></p>
+    <ol>
+      <li>先记下 <span class="answer">SUP-20190506</span>；</li>
+      <li>看邮件页最上方工具栏；</li>
+      <li>点击 <b>“返回LJ-Lost II”</b>；</li>
+      <li>回到“迁移批次与交叉索引查询”；</li>
+      <li>在编号框输入 <span class="answer">SUP-20190506</span>；</li>
+      <li>点击 <b>“查询”</b>。</li>
+    </ol>
+    <p class="next">注意：这里完全不需要“联系周远”，因为玩家本人就是周远。</p>
+  </div>
+
+  <h2>十三、SUP-20190506：最后一份补充登记</h2>
+  <div class="step">
+    <h3><span class="n">16</span>打开“卷宗补充登记”</h3>
+    <p>查询 <span class="answer">SUP-20190506</span> 后会进入 2019-05-06 的补充登记。</p>
+    <p>这里确认：</p>
+    <ul>
+      <li>客服邮件 EML-0504 已转存进 042 卷宗；</li>
+      <li>发件人能准确说明 2008 年的服务经过；</li>
+      <li>她也提到自己 2010 年曾回临江站申请认领；</li>
+      <li>她最后请求：<b>“照片如果还在，请不要销毁。”</b></li>
+      <li>处理结果：<b>照片及原编号 042 卷宗继续保留</b>。</li>
+    </ul>
+    <p>页面显示状态：</p>
+    <p><span class="answer">已保留</span></p>
+    <p>然后点击页面末尾的：</p>
+    <p><b>查看卷宗封面</b></p>
+  </div>
+
+  <h2>十四、正式结局</h2>
+  <div class="step">
+    <h3><span class="n">17</span>卷宗封面</h3>
+    <p>最终画面会显示家庭照片、编号 <span class="answer">2008-0716-042</span>，以及状态：</p>
+    <p><b><del>未认领</del>　→　已保留</b></p>
+    <p><strong>到这里就是完整通关。</strong>后面没有额外隐藏主线，也不需要继续寻找“周远”“周宁”的联系方式。</p>
+  </div>
+
+  <h2>十五、所有需要输入/记住的内容</h2>
+  <table>
+    <tr><th>阶段</th><th>输入 / 编号</th><th>作用</th></tr>
+    <tr><td>失物查询</td><td><span class="answer">042</span></td><td>找到蓝色帆布书包</td></tr>
+    <tr><td>历史列车</td><td><span class="answer">K124</span> + <span class="answer">2008-07-16</span></td><td>确认当日晚点</td></tr>
+    <tr><td>服务登记</td><td><span class="answer">2008-07-16</span></td><td>打开 0716-N → 0717-M</td></tr>
+    <tr><td>留言板</td><td><span class="answer">2008-07-17</span> 或 <span class="answer">NING</span></td><td>补齐当前版调查节点</td></tr>
+    <tr><td>旧门牌</td><td><span class="answer">石榴巷17号</span></td><td>追到公共查询区</td></tr>
+    <tr><td>设备</td><td><span class="answer">TERM-03</span></td><td>找到 REC-0717-03</td></tr>
+    <tr><td>恢复目录</td><td><span class="answer">browser_recovery.txt</span></td><td>找到旧新闻缓存</td></tr>
+    <tr><td>迁移批次</td><td><span class="answer">LJ10-0716-B</span></td><td>找到 042 新系统卷宗</td></tr>
+    <tr><td>2010附件</td><td><span class="answer">CLM-20100318</span></td><td>认领申请</td></tr>
+    <tr><td>2013索引</td><td><span class="answer">QRY-20130906</span></td><td>家属核对记录</td></tr>
+    <tr><td>邮件搜索</td><td><span class="answer">陈师傅</span></td><td>找到 EML-0504</td></tr>
+    <tr><td>邮件后索引</td><td><span class="answer">SUP-20190506</span></td><td>进入最终卷宗补充登记</td></tr>
+  </table>
+
+  <h2>十六、常见卡点</h2>
+
+  <details open>
+    <summary>看完“给陈师傅的一封信”后干什么？</summary>
+    <div>
+      看正文下面的 <b>Archive ref</b>，记下 <span class="answer">SUP-20190506</span>。
+      然后点击邮件页顶部的<b>“返回LJ-Lost II”</b>，在“旧登记查询”输入
+      <span class="answer">SUP-20190506</span>。这是结局前最后一次手动查询。
+    </div>
+  </details>
+
+  <details>
+    <summary>找到邮件后怎么和周远联系？</summary>
+    <div>
+      不用联系。玩家自己就是周远。开场扫描件路径已经写着
+      <span class="answer">D:\周远\母亲遗物\周宁寻人资料\...</span>。
+      邮件之后应该追的是档案索引 <span class="answer">SUP-20190506</span>。
+    </div>
+  </details>
+
+  <details>
+    <summary>看到“已保留”是不是结局？</summary>
+    <div>
+      在 SUP-20190506 的“卷宗补充登记”里看到“已保留”后，再点
+      <b>“查看卷宗封面”</b>。进入最终卷宗封面页面后就是正式结局。
+    </div>
+  </details>
+
+  <details>
+    <summary>LJ-Lost II 里输入 042 为什么查不到？</summary>
+    <div>
+      新系统不把原登记号 042 当作索引键。必须先在旧失物系统的
+      “月度统计 → 旧登记移交批次表”找到 <span class="answer">LJ10-0716-B</span>，
+      再用这个迁移批次查新系统。
+    </div>
+  </details>
+
+  <details>
+    <summary>CLM-20100318 看完以后没有按钮怎么办？</summary>
+    <div>
+      页面给的是文本形式的“交叉索引”，不是下一页按钮。
+      记下 <span class="answer">QRY-20130906</span>，点上方“旧登记查询”，手动输入它。
+    </div>
+  </details>
+
+  <details>
+    <summary>弹出 1 元支持窗口，是不是必须付款才能继续？</summary>
+    <div>
+      不是。它是自愿打赏，不影响任何剧情和内容。点“×”或“下次一定”即可继续完整调查。
+    </div>
+  </details>
+
+  <h2>十七、页面跳转异常时的救援入口</h2>
+  <p class="small">正常游玩建议按线索自己进入。只有浏览器返回、缓存或部署跳转异常时再使用下面地址。</p>
+  <div class="direct">
+    游戏首页：<a href="https://mike798-cloud.github.io/found/" target="_blank" rel="noopener">https://mike798-cloud.github.io/found/</a><br>
+    LJ-Lost II：<a href="https://mike798-cloud.github.io/found/lost2/" target="_blank" rel="noopener">https://mike798-cloud.github.io/found/lost2/</a><br>
+    EML-0504：<a href="https://mike798-cloud.github.io/found/mail/?id=EML-0504" target="_blank" rel="noopener">https://mike798-cloud.github.io/found/mail/?id=EML-0504</a><br>
+    SUP-20190506：<a href="https://mike798-cloud.github.io/found/lost2/?entry=SUP-20190506" target="_blank" rel="noopener">https://mike798-cloud.github.io/found/lost2/?entry=SUP-20190506</a>
+  </div>
+
+  <h2>十八、哪些页面不是通关必读</h2>
+  <p>新闻中心的大量普通新闻、票务公告、一般站务信息等主要用于增加真实网站感，不需要为了通关全部翻完。主线每个阶段只抓住一个问题：</p>
+  <ol>
+    <li>042 是什么？</li>
+    <li>K124 当晚发生了什么？</li>
+    <li>那个未成年旅客留下了什么痕迹？</li>
+    <li>石榴巷旧址为什么把调查带到公共查询终端？</li>
+    <li>TERM-03 的缓存说明她在查什么？</li>
+    <li>042 后来被迁到了哪里？</li>
+    <li>2010、2013、2019 三次后续记录说明了什么？</li>
+    <li>邮件里的 SUP-20190506 最终把卷宗带到什么状态？</li>
+  </ol>
+
+  <p class="small">
+    本攻略按 Mike798-cloud/found 当前公开主线与前端路由重新核对。
+    与旧攻略相比，重点补上了留言板调查节点，并把 EML-0504 → SUP-20190506 → 卷宗封面 的实际点击路径写成逐步操作。
+  </p>
+</main>
+
+<footer>
+  《未认领》玩家视角完整攻略 · 当前版修订 · 2026-09-11
+</footer>
+</article>
+</body>
+</html>
